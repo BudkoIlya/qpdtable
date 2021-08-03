@@ -1,0 +1,27 @@
+.addWindow {
+  position: absolute;
+  left: 50%;
+  top: -15px;
+  transform: translateX(-50%);
+  width: calc(100% + 30px);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addWindow > div {
+    background-color: rgb(231, 226, 226);
+    padding: 30px;
+    border-radius: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.buttons > button {
+    margin: 10px 0 10px 10px;
+}
+.inputs > input:last-child {
+    margin-left: 10px;
+}
