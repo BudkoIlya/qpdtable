@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Table.module.css";
 import { RootState } from "../../redux";
@@ -7,19 +7,26 @@ import {
   toggleEditA,
   deleteLineA,
   toggleAddA,
+  getLinesA,
 } from "../../redux/table-reducer";
 import { EditLine } from "./EditLine/EditLine";
 import { AddLine } from "./addLine/AddLine";
+import editImg from '../../imgs/edit.png'
+import deleteImg from '../../imgs/delete.png'
+
 export const Table: React.FC = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getLinesA());
+  }, [dispatch]);
   const { isEdit, lines, isAdd } = useSelector(
     (state: RootState) => state.table
   );
-  const dispatch = useDispatch();
 
   const toggleEdit = (editLine: lineT | null) => {
     dispatch(toggleEditA(editLine));
   };
-  const deleteLine = (id: string) => {
+  const deleteLine = (id: number) => {
     dispatch(deleteLineA(id));
   };
   return (
@@ -44,8 +51,8 @@ export const Table: React.FC = () => {
                   <div>{el.name}</div>
                   <div>{el.value}</div>
                   <div className={styles.buttons}>
-                    <div onClick={() => toggleEdit(el)}>edit</div>
-                    <div onClick={() => deleteLine(el.id)}>delete</div>
+                    <div onClick={() => toggleEdit(el)}><img src={editImg} alt='edit'/></div>
+                    <div onClick={() => deleteLine(el.id)}><img src={deleteImg} alt='edit'/></div>
                   </div>
                 </div>
               )}

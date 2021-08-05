@@ -23,6 +23,9 @@
   border-bottom: none;
   flex-flow: column;
 }
+.header > div:last-child {
+  width: 20%;
+}
 .header > div, .line > div {
   padding: 10px;
   border-right: 1px solid black;
@@ -33,6 +36,7 @@
 }
 .line {
   display: flex;
+  justify-content: center;
   border-bottom: 1px solid black;
 }
 .header > div:last-child, .line > div:last-child{
@@ -44,6 +48,7 @@
 .buttons {
   display: flex;
   justify-content: space-around;
+  width: 20% !important;
 }
 .buttons > div {
   cursor: pointer;

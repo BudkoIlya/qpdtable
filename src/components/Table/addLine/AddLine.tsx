@@ -11,7 +11,6 @@ export const AddLine: React.FC = () => {
   const [value, setValue] = useState("");
   const add = () => {
     const newLine = {
-      id: String(new Date().getTime()),
       name,
       value,
     };
